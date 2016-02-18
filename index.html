@@ -13,7 +13,7 @@ You can also use your own favico or Hackathon logo/header.
 <html>
 <head>
   <meta charset='utf-8'>
-  <title>HackathonName Expo</title>
+  <title>MHacks Refactor Expo</title>
 
   <!-- Meta tags to eliminate caching. I don't totally get how these work, so you might not need all of them. cribbed from: http://stackoverflow.com/questions/1341089/using-meta-tags-to-turn-off-caching-in-all-browsers-->
   <meta http-equiv="cache-control" content="max-age=0" />
@@ -35,12 +35,17 @@ You can also use your own favico or Hackathon logo/header.
 <body>
   <div class="container">
     <div id="header">
-      <h1>
-        <a href="DevpostURL" title="HackathonName Expo">
-          <img src="http://nealrs.github.io/devpost-follow-button/icon/devpost.svg" style="vertical-align:middle; width:60px;"> HackathonName
+      <a href="http://mhacksrefactor.devpost.com/" title="HackathonName Expo">
+          <img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_photos/000/333/113/datas/full_width.png" style="vertical-align:middle;" alt="MHacks Refactor">
         </a>
-      <h1>
     </div>
+
+    <div id="toggle">
+      <p>
+        <span id="toggleL" class="toggle toggleOn">Sponsor prizes</span><span id="toggleR" class="toggle">Categories</span>
+      </p>
+    </div>
+
     <div id="fullTable"></div>
   </div>
 
@@ -48,22 +53,31 @@ You can also use your own favico or Hackathon logo/header.
     <div class="search_container">
       <input class="search" type="search" placeholder="Filter by sponsor prize, project name, category or whatever" id="filter"/>
     </div>
+
+    <!--<div id="toggle">
+      <p>
+        <span id="toggleL" class="toggle toggleOn">Sponsor prizes</span><span id="toggleR" class="toggle">Categories</span>
+      </p>
+    </div>-->
+
     <table id="expoTable">
       <thead>
         <tr>
           <th class="number">Table</th>
           <th class="name">Project</th>
           <th class="prize">Sponsor Prizes</th>
-          <th class="cat">Category</th> <!--You can comment out this column if you don't need it-->
+          <th class="cat">Category</th>
+          <th class="judge">Judges</th> <!--You can comment out this column if you don't need it-->
         </tr>
       </thead>
       <tbody class="list">
         {{#data}}
           <tr>
             <td class="number">E{{expo}} T{{table}}</td>
-            <td class="name"><a href="{{{link}}}" target="_blank">{{project}}</a></td>
+            <td class="name"><a href="{{{link}}}" target="_blank">{{project}}</a><br><span class="purpose">({{purpose}})</span></td>
             <td class="prize">{{sponsors}}</td>
-            <td class="cat">{{category}}</td> <!--You can comment out this column if you don't need it-->
+            <td class="cat togglem">{{category}}</td>
+            <td class="judge">{{judges}}</td> <!--You can comment out this column if you don't need it-->
           </tr>
         {{/data}}
       </tbody>
@@ -111,7 +125,7 @@ You can also use your own favico or Hackathon logo/header.
             tableData.data[x]['sponsors'] = s.replace(/,/ig, ", ");
           }
           // print cleaned data
-          console.log(tableData);
+          //console.log(tableData);
 
           // process and render template
           var template = $('#template').html();
@@ -122,7 +136,7 @@ You can also use your own favico or Hackathon logo/header.
 
           // list.js search init
           var listOptions = {
-            valueNames: [ 'number', 'name', 'prize', 'cat' ],
+            valueNames: [ 'number', 'name', 'prize', 'cat', 'judge' ],
             page: 1000000
           };
           var userList = new List('fullTable', listOptions);
@@ -138,5 +152,15 @@ You can also use your own favico or Hackathon logo/header.
 
     });
   </script>
+
+  <script>
+    $(".toggle").click(function() {
+      $(".toggle").toggleClass('toggleOn');
+      console.log('derp');
+      $(".cat").toggle();
+      $(".prize").toggle();
+    });
+  </script>
+
 </body>
 </html>
