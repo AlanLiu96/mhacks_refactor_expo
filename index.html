@@ -56,7 +56,7 @@ You can also use your own favico or Hackathon logo/header.
 
     <!--<div id="toggle">
       <p>
-        <span id="toggleL" class="toggle toggleOn">Sponsor prizes</span><span id="toggleR" class="toggle">Cortex</span>
+        <span id="toggleL" class="toggle toggleOn">Sponsor prizes</span><span id="toggleR" class="toggle">Category</span>
       </p>
     </div>-->
 
@@ -66,14 +66,14 @@ You can also use your own favico or Hackathon logo/header.
           <th class="number">Table</th>
           <th class="name">Project</th>
           <th class="prize">Sponsor Prizes</th>
-          <th class="cat">Cortex</th>
+          <th class="cat">Category</th>
 
         </tr>
       </thead>
       <tbody class="list">
         {{#data}}
           <tr>
-            <td class="number">E{{expo}} T{{table}}</td>
+            <td class="number">T{{table}}</td>
             <td class="name"><a href="{{{link}}}" target="_blank">{{project}}</a></td>
             <td class="prize">{{sponsors}}</td>
             <td class="cat togglem">{{cortex}}</td>
