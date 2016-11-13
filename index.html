@@ -40,11 +40,11 @@ You can also use your own favico or Hackathon logo/header.
         <!--</a>-->
     </div>
 
-    <div id="toggle">
+    <!--<div id="toggle">
       <p>
-        <span id="toggleL" class="toggle toggleOn">Sponsor prizes</span><span id="toggleR" class="toggle">Category</span>
+        <span id="toggleL" class="toggle toggleOn">Sponsor prizes</span><span id="toggleR" class="toggle">Location</span>
       </p>
-    </div>
+    </div>-->
 
     <div id="fullTable"></div>
   </div>
@@ -66,17 +66,17 @@ You can also use your own favico or Hackathon logo/header.
           <th class="number">Table</th>
           <th class="name">Project</th>
           <th class="prize">Sponsor Prizes</th>
-          <th class="cat">Category</th>
+          <!--<th class="cat">Location</th>-->
 
         </tr>
       </thead>
       <tbody class="list">
         {{#data}}
           <tr>
-            <td class="number">T{{table}}</td>
+            <td class="number">{{table}}</td>
             <td class="name"><a href="{{{link}}}" target="_blank">{{project}}</a></td>
             <td class="prize">{{sponsors}}</td>
-            <td class="cat togglem">{{cortex}}</td>
+            <!--<td class="cat togglem">{{location}}</td>-->
           </tr>
         {{/data}}
       </tbody>
